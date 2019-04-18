@@ -28,10 +28,6 @@ app.get('/', (req, res, db) => {
 app.put('/lose', (req, res, db) => {
   db('deaths')
     .increment('amount', 1)
-    .returning('amount')
-    .then(amount => {
-      res.send(amount);
-    })
     .catch(err => res.status(400).json('Unable to get amount.'));
 });
 
