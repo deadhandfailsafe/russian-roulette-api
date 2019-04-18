@@ -17,7 +17,7 @@ const db = knex({
 });
 
 app.get('/', (req, res, db) => {
-  res.send(db('deaths'));
+  res.send(db);
 });
 
 // app.get('/', (req, res, db) => {
