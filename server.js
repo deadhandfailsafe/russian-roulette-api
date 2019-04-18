@@ -17,7 +17,11 @@ const db = knex({
 });
 
 app.get('/', (req, res, db) => {
-  res.send(db.select('amount').from('deaths'));
+  db.select('*')
+    .from('deaths')
+    .then(data => {
+      console.log(data);
+    });
 });
 
 // app.get('/', (req, res, db) => {
