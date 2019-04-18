@@ -16,10 +16,6 @@ const db = knex({
 
 app.use(cors());
 
-const database = {
-  playerDeaths: 0
-};
-
 app.get('/', (req, res, db) => {
   db('deaths')
     .returning('amount')
