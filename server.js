@@ -17,8 +17,8 @@ const db = knex({
 });
 
 app.get('/', (req, res, db) => {
-  db('deaths')
-    .select('amount')
+  db.select('amount')
+    .table('deaths')
     .then(amount => {
       res.send(amount);
     })
