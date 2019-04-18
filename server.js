@@ -16,20 +16,24 @@ const db = knex({
   }
 });
 
-app.get('/', (req, res, db) => {
-  db.select('amount')
-    .table('deaths')
-    .then(amount => {
-      res.send(amount);
-    })
-    .catch(err => res.status(400).json('Unable to get amount.'));
+app.get('/', (req, res) => {
+  res.send('It is working!');
 });
 
-app.put('/lose', (req, res, db) => {
-  db('deaths')
-    .increment('amount', 1)
-    .catch(err => res.status(400).json('Unable to get amount.'));
-});
+// app.get('/', (req, res, db) => {
+//   db.select('amount')
+//     .from('deaths')
+//     .then(data => {
+//       res.send(data);
+//     })
+//     .catch(err => res.status(400).json('Unable to get amount.'));
+// });
+
+// app.put('/lose', (req, res, db) => {
+//   db('deaths')
+//     .increment('amount', 1)
+//     .catch(err => res.status(400).json('Unable to get amount.'));
+// });
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('Running on port ${process.env.PORT}');
