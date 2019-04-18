@@ -4,6 +4,7 @@ const cors = require('cors');
 const knex = require('knex');
 
 const app = express();
+
 app.use(bodyParser.json());
 app.use(cors());
 
