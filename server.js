@@ -5,8 +5,8 @@ const knex = require('knex');
 
 const app = express();
 
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 const db = knex({
   client: 'pg',
@@ -16,7 +16,7 @@ const db = knex({
   }
 });
 
-app.get('/', (req, res) => {
+app.get('/', (req, res, db) => {
   res.send(db('deaths'));
 });
 
