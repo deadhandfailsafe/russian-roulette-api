@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 //   }
 
 const database = {
-  amount: 3
+  amount: 0
 };
 
 app.get('/', (req, res) => {
@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.put('/lose', (req, res) => {
+  database.amount++;
   // db('deaths')
   //   .increment('amount', 1)
   //   .catch(err => res.status(400).json('Unable to get amount.'));
