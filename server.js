@@ -5,6 +5,7 @@ const knex = require('knex');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 const db = knex({
   client: 'pg',
@@ -13,8 +14,6 @@ const db = knex({
     ssl: true
   }
 });
-
-app.use(cors());
 
 app.get('/', (req, res, db) => {
   db('deaths')
@@ -25,7 +24,7 @@ app.get('/', (req, res, db) => {
     .catch(err => res.status(400).json('Unable to get amount.'));
 });
 
-app.put('/lose', (req, res) => {
+app.put('/lose', (req, res, db) => {
   db('deaths')
     .increment('amount', 1)
     .returning('amount')
