@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 //   }
 
 const database = {
-  amount: 0
+  amount: 3
 };
 
 app.get('/', (req, res) => {
